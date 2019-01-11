@@ -1,43 +1,32 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
-import sys
-
-import unittest, time, re
 
 import requests
 from bs4 import BeautifulSoup
 import urllib.request
 from datetime import datetime
+import time
 
 
-HASHTAG = "Robo"
+SEARCH_TERM = "Cobreloa"
 ACCOUNT = ""
-SINCE = "2017-03-01"
-UNTIL = "2017-04-18"
+SINCE = "2018-01-01"
+UNTIL = "2018-12-31"
 
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
 
-driver = webdriver.Firefox()
+driver = webdriver.Chrome(options=options)
 driver.implicitly_wait(30)
 verificationErrors = []
 accept_next_alert = True
 
-driver.get(("https://twitter.com/search?f=tweets&q=%23{}" +
+driver.get(("https://twitter.com/search?f=tweets&q={}" +
             "%20since%3A{}%20until%3A{} " +
-            "&src=typd&lang=en").format(HASHTAG, SINCE, UNTIL))
+            "&src=typd&lang=en").format(SEARCH_TERM, SINCE, UNTIL))
 
-for i in range(1, 20):
+for i in range(1, 10):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     time.sleep(0.5)
-
-link = driver.find_element_by_link_text('Latest')
-link.click()
 
 html_source = driver.page_source
 data = html_source.encode('utf-8')
@@ -49,10 +38,7 @@ for t in tws:
         tweetuser = t.find('a', class_='account-group')['href'][1:]
         date = datetime.fromtimestamp(float(timestamp))
         text = t.find('p', class_='tweet-text').text
-        if len(text) > 199:
-            # print("BUU")
-            # print(text)
-            text = text[:199]
         # print(s + " | " + str(date) + row["text"] + row["user_screen_name"])
         # print(HASHTAG, text, str(date))
         print(text)
+        print("######")
