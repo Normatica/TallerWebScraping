@@ -14,3 +14,4 @@ Durante este taller vamos a utilizar Google Colab para programar sin necesidad d
 - [Introducción a BS4](https://colab.research.google.com/drive/1YdTlBTQnXgOT8Vhwbx3O32fy3VXklMwW)
 - [Obtención de imágenes](https://colab.research.google.com/drive/1U-ABT5BBtswizYeZtqvRd1jNt4nyH7J9)
 - [Ejemplo: Web Scraping de EMOL](https://colab.research.google.com/drive/1IVCTHuNY1g9gIPLaTijmQYB86y82tQzq)
+- [Ejemplo: Web Scraping de Twitter](https://colab.research.google.com/drive/1La2oVO9rLwe_Fj0-_5T9ch-9xffV0eDP)
