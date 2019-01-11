@@ -3,6 +3,7 @@
 Esto repositorio contiene el material para el taller de Web Scrapping.
 
 **Profesor**: Adrián Soto Suárez (adrian.soto@ing.puc.cl - @alanezz)
+
 **Ayudante**: Hernán Valdivieso (hfvaldivieso@uc.cl)
 
 ## Links a los Google Colab
